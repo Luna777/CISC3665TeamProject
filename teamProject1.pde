@@ -1,61 +1,79 @@
 //CISC 3665
 //Team Project: Ken's Revenge
 //
+//Main functions:
+//setup(): 
+//  initialize all the objects and variables
 //
+//draw(): 
+//  draw all the screen, objects.
+//      there are 3 screen, title, play, gameover.
+//      objects: Ken, Thief, golds, trap items, swiftness, trapArea, 
+//  keep updating all the detection, action and movement algorithms
+//      include items collision detection, time recoder(time delay funciton), 
+//      action to use items, player's movement by key, agent's movement by gold finding algorithm.
 //
-//
-//
-//
-//
-//
+//How to play:
+// Start Screen: by press 's' key to start the game.
+// Game play screen: using arrow keys to move Ken in each direction;
+//                   using space key to put down a trap to where you stand after trap item collision
+//          Goal: race to Thief, try to collect golds as much as possible to win;
+// Game Over Screen: by press 's' key to re-start the game.
 
 
+//setup variables
 static final int NORTH = 0;
 static final int EAST  = 3;
 static final int SOUTH = 6;
 static final int WEST  = 9;
 
-PVector gone = new PVector(-1000, -1000);
-//PVector gone = null;
-boolean start = false;
+static final int START = 11;
+static final int RUNNING = 12;
+static final int GAMEOVER = 13;
 
-int kenScore = 0;
-int thiefScore = 0;
+PVector gone = new PVector(-1000, -1000); //move away items   
+int state = START;      //game start state
 
-int time; 
-int direction;
+int kenScore;           //recording ken's score
+int thiefScore;         //recording thief's score
 
-Ken ken = new Ken();
-Thief thief = new Thief();
+int time;               //recording the real time
 
-Gold golds[] = new Gold[30];
-Swift swifts[] = new Swift[5];
-Trap traps[] = new Trap[10];
+Ken ken = new Ken();               //create character ken
+Thief thief = new Thief();         //create character thief
 
-int trapArea[][] = new int[10][10];
-int[] taK={-1, -1};
-int[] taT={-1, -1};
+Gold golds[] = new Gold[30];       //create 30 golds
+Swift swifts[] = new Swift[5];     //create 5 swiftness
+Trap traps[] = new Trap[10];       //create 10 trap items
 
-PImage startBG, endBG, gameBG;
+int trapArea[][] = new int[10][10];//create a 2D-array object for trap area
+int[] taT={-1, -1};                //trapArea = 0, there's is no trap yet
+int[] taK={-1, -1};                //trapArea = 2, delay time, in white and not slowdown characters
+                                   //trapArea = 1, turns black and do slowdown when characters are inside
+
+PImage startBG, endBG, gameBG;     //different backgrounds
 
 void setup(){
-  size(600, 600); // width and height
-  startBG = loadImage("forest.png");
+  size(600, 600);                     // width and height
+  startBG = loadImage("forest.png");  //load in different backgrounds
   endBG = loadImage("gameover.png");
   gameBG = loadImage("gamebg.png");
+  
+  kenScore = 0;
+  thiefScore = 0;
 
-  for(int i=0; i<golds.length/3; i++){
+  for(int i=0; i<golds.length/3; i++){//define&initial 30 golds, each 10 or value of 5, 10, 20
     golds[i]=new Gold(i, 5);
     golds[10+i]=new Gold(i, 10);
     golds[20+i]=new Gold(i, 20);
   }
-  for(int i=0 ; i<swifts.length; i++){
+  for(int i=0 ; i<swifts.length; i++){//define&initial swiftness to new
     swifts[i]=new Swift();
   }
-  for(int i=0 ; i<traps.length; i++){
+  for(int i=0 ; i<traps.length; i++){ //define&initial trap items to new
     traps[i]=new Trap();
   }
-  for(int i=0; i<10; i++){
+  for(int i=0; i<10; i++){            //define&initial trapArea array to all 0s.
     for(int j=0; j<10; j++){
       trapArea[i][j]=0;
     }
@@ -65,23 +83,27 @@ void setup(){
 }
 
 void draw(){
-  if(!start) {
-    background(startBG);
+  //show title screen, press space key to start
+  if(state == START) {                        
+    background(startBG);              
     fill(#ffffff);
     textSize(32);
-    text("Press space to start",160,560);
-    if(keyPressed)
-      if(key == ' ') {
-        start = true;
+    text("Press 's' to start",160,560);
+    if(keyPressed){
+      if(key == 's') {
+        state = RUNNING;
       }
+    }
   }
   
-  if(start) {
-  time = millis()/1000;
-  //drawBackground();
+  //show play screen and start game
+  //draw all the objects in order
+  //keep updating detections and movements
+  if(state == RUNNING) {                         
+  time = millis()/1000;//real time counter
   background(gameBG);
   
-  //draw trapArea
+  //draw trapArea; =1, fill in black; =2, fill in white
   for(int i=0; i<10; i++){
    for(int j=0; j<10; j++){
      if(trapArea[i][j]==1){
@@ -112,7 +134,7 @@ void draw(){
   
   
   
-  //ken's movement
+  //ken's movement, by arrow keys
   if(keyPressed && key==CODED){
     if(keyCode==UP){
       ken.move(NORTH);
@@ -128,13 +150,13 @@ void draw(){
     }
   }
   
-  //thief's movement, detect gold Thief AI or random dir
+  //thief's movement, by gold finding algorithm
   if(thief.direction==-1){
     thief.move(thief.findDir());
   }
   
   
-  //detect swiftness Ken
+  //detect Ken's swiftness collision
   int ks = ken.gotSwift();
   if(ks!=-1){
     swifts[ks].pos = gone;
@@ -144,7 +166,17 @@ void draw(){
       ken.speedRestore();
   }
   
-  //detect if ken is inside a trap, while ken moving around
+  //detect Thief's swiftness collision
+  int ts = thief.gotSwift();
+  if(ts!=-1){
+    swifts[ts].pos = gone;
+    thief.speedup(time);
+  }
+  if(thief.duration5()==time){
+      thief.speedRestore();
+  }
+  
+  //detect if ken is inside a trap
   if(trapArea[(int)ken.pos.x/60][(int)ken.pos.y/60]==1){
     ken.slowdown();
     ken.isInsideTrap=true;
@@ -154,55 +186,43 @@ void draw(){
     ken.isInsideTrap=false;
   }
   
-  //detect swiftness Thief
-  int ts = thief.gotSwift();
-  if(ts!=-1){
-    swifts[ts].pos = gone;
-    thief.speedup(time);
-    System.out.println("ken:"+ts);
-  }
-  if(thief.duration5()==time){
-      thief.speedRestore();
-  }
-  
-  //detect if the thief is inside a trap, while the thief is moving around
+  //detect if the thief is inside a trap
   if(trapArea[(int)thief.pos.x/60][(int)thief.pos.y/60]==1){
    thief.slowdown();
   }else{
    thief.speedRestore();
   }
  
-  //detect golds Ken
+  //detect Ken's golds collision
   int kg = ken.gotGold();
   if(kg!=-1){
     golds[kg].pos = gone;
     kenScore+=golds[kg].value;
   }
   
-  //detect golds Thief
+  //detect Thief's golds collision
   int tg = thief.gotGold();
   if(tg!=-1){
     golds[tg].pos = gone;
     thiefScore+=golds[tg].value;
   }
   
-  //detect traps Ken
+  //detect Ken's trap items collision
   int kt = ken.gotTrap();
   if(kt!=-1 && ken.lastTrapFinished==true && ken.hasTrap==false ){
     traps[kt].pos=gone;
     ken.hasTrap=true;
   }
   
-  //detect traps Thief
+  //detect Thief's trap items collision
   int tt = thief.gotTrap();
   if(tt!=-1 && thief.hasTrap==false){
     traps[tt].pos=gone;
     thief.hasTrap=true;
     thief.canIPutTrap = true;
   }
-  
-  
-  // Ken puts trap and make a 2 second delay
+ 
+  //Ken puts trap down to ground
   if(ken.canIPutTrap==true){
     taK=ken.putTrap(time);
   }
@@ -211,7 +231,7 @@ void draw(){
       ken.lastTrapFinished=true;
   }
   
-  //Thief puts trap and make a 2 second delay
+  //Thief puts trap down to ground
   if(thief.canIPutTrap==true){
     taT=thief.putTrap(time);
   }
@@ -220,16 +240,34 @@ void draw(){
       
   }
   
-  
+  //draw score board
   scoreBoard();
   
-  
+  //detect if the game is over
   if(allGoldsCollected()) {
-     gameOver(); 
+   state = GAMEOVER;
   }
- } // end of start
+ }
+ 
+ //show game over screen and a start again option
+ if(state == GAMEOVER){
+   gameOver();
+   
+   fill(#ffffff);
+    textSize(32);
+    text("Press 's' to re-start",160,560);
+    if(keyPressed){
+      if(key == 's' ) {
+        setup();
+        state = RUNNING;
+      }
+    }
+ }
+ 
 } // end of draw
 
+// !!! this part is for debugging, not showing in final game
+//draw simple grids background
 void drawBackground(){
   background(200);
   
@@ -240,6 +278,7 @@ void drawBackground(){
   
 }
 
+//draw in-game score board
 void scoreBoard(){
   fill(255);
   textSize(20);
@@ -253,6 +292,7 @@ void scoreBoard(){
 
 }
 
+//detect if all golds gone
 boolean allGoldsCollected() {
   int i = 0;
   while(i < golds.length) {
@@ -263,6 +303,7 @@ boolean allGoldsCollected() {
   return true;
 }
 
+//draw game over screen
 void gameOver() {
   background(endBG);
   fill(0);
@@ -277,12 +318,11 @@ void gameOver() {
     max = thiefScore;
     winner = "Thief";
   }
-  text(winner + " Wins!", 210,500);
-  text("Score: " + max, 210, 550);
+  text(winner + " Wins!", 210,450);
+  text("Score: " + max, 210, 500);
 }
 
 void keyPressed(){
-
   if(key != CODED){
     switch(key){
       case ' ':
