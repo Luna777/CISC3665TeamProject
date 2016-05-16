@@ -33,15 +33,15 @@ static final int RUNNING = 12;
 static final int GAMEOVER = 13;
 
 PVector gone = new PVector(-1000, -1000); //move away items   
-int state = START;      //game start state
+int state = START;      //set state to start
 
 int kenScore;           //recording ken's score
 int thiefScore;         //recording thief's score
 
 int time;               //recording the real time
 
-Ken ken = new Ken();               //create character ken
-Thief thief = new Thief();         //create character thief
+Ken ken;                //create character ken
+Thief thief;            //create character thief
 
 Gold golds[] = new Gold[30];       //create 30 golds
 Swift swifts[] = new Swift[5];     //create 5 swiftness
@@ -59,6 +59,9 @@ void setup(){
   startBG = loadImage("forest.png");  //load in different backgrounds
   endBG = loadImage("gameover.png");
   gameBG = loadImage("gamebg.png");
+  
+  ken = new Ken();
+  thief = new Thief();
   
   kenScore = 0;
   thiefScore = 0;

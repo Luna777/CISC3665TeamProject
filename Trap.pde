@@ -1,13 +1,13 @@
 //CISC 3665
 //Team Project: Ken's Revenge
+//Team member: Xin Guan and Joyce Chiu
 //
-//
-//
-//
-//
-//
-//
-//
+//class Trap:
+//    trap has: a random positon in the range of screen
+//              a radius, 20
+//    draw():
+//          draw trap item as a  ellipse with a "↓" text on it 
+//          in color of flashing dark gray
 class Trap{
   
   PVector pos = new PVector();
@@ -23,8 +23,8 @@ class Trap{
   void draw()
   {
     strokeWeight(1.2);
-    stroke(64); //dark gold
-    fill(96); //gold
+    stroke(64); 
+    fill(96); 
     
     boolean on=true;
     if(frameCount% 10 == 0) {

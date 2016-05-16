@@ -1,13 +1,13 @@
 //CISC 3665
 //Team Project: Ken's Revenge
+//Team member: Xin Guan and Joyce Chiu
 //
-//
-//
-//
-//
-//
-//
-//
+//class Swift:
+//    swift has: a random positon in the range of screen
+//               a radius, 20
+//    draw():
+//          draw swiftness as a blue ellipse with a "≈" text on it 
+//          in color of flashing blue color.
 class Swift{
   
   PVector pos = new PVector();
@@ -15,9 +15,8 @@ class Swift{
   
   Swift()
   {
-    pos.x = random(0, width);
-    pos.y = random(0, height);
-    //System.out.println(pos.x +" "+ pos.y);
+    pos.x = random(0, 600);
+    pos.y = random(0, 600);
   }
   
   void draw()

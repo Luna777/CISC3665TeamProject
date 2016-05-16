@@ -2,8 +2,9 @@
 //Team Project: Ken's Revenge
 //Team member: Xin Guan and Joyce Chiu
 //
-//Gold class:
+//class Gold:
 //    gold has: a random positon in the range of screen
+//              a radius, 30;
 //              a value, could be 5, 10 or 20
 //              a color, gold, silver or brown, depends on the value it has
 //    draw():
