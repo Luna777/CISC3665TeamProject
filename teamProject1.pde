@@ -17,8 +17,9 @@
 //How to play:
 // Start Screen: by press 's' key to start the game.
 // Game play screen: using arrow keys to move Ken in each direction;
-//                   using space key to put down a trap to where you stand after trap item collision
-//          Goal: race to Thief, try to collect golds as much as possible to win;
+//                   collect items by collision, swiftness for speedup, trap items for putting down traps later;
+//                   using space key to put down a trap to where you stand.
+//             Goal: race to Thief, try to collect golds as much as possible to win;
 // Game Over Screen: by press 's' key to re-start the game.
 
 
