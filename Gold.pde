@@ -1,5 +1,6 @@
 //CISC 3665
 //Team Project: Ken's Revenge
+//Team member: Xin Guan and Joyce Chiu
 //
 //Gold class:
 //    gold has: a random positon in the range of screen
