@@ -3,13 +3,13 @@
 //Team member: Xin Guan and Joyce Chiu
 //
 //class Gold:
-//    gold has: a random positon in the range of screen
-//              a radius, 30;
-//              a value, could be 5, 10 or 20
-//              a color, gold, silver or brown, depends on the value it has
-//    draw():
-//          to draw the gold as a ellipse in its position on screen.
-//          fill in its color and has a text of its value on it.
+//   gold has: a random position in the range of screen
+//             a radius, 30;
+//             a value, could be 5, 10 or 20
+//             a color, gold, silver or brown, depends on the value it has
+//   draw():
+//         to draw the gold as an ellipse in its position on screen.
+//         fill in its color and has a text of its value on it.
 
 class Gold{
   

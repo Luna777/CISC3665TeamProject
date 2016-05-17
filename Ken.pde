@@ -3,13 +3,13 @@
 //Team member: Xin Guan and Joyce Chiu
 //
 //class Ken: 
-//    has: ken's position, velocity, radius, buffers for trap function, time delay variables
-//
-//    draw(): draw ken as a green ellipse with a letter K.
-//    move(): move ken by the direction passed in. 
-//    speedup(), speeddown(), speedRestore(): to change ken's speed.
-//    gotSwift(), gotGold(), gotTrap(): to detect collision with items.
-//    putTrap(): put trap down to the position and make a little time delay.
+//   has: ken's position, velocity, radius, buffers for trap function, time delay variables
+
+//   draw(): draw ken as a green ellipse with a letter K.
+//   move(): move ken by the direction passed in. 
+//   speedup(), speeddown(), speedRestore(): to change ken's speed.
+//   gotSwift(), gotGold(), gotTrap(): to detect collision with items.
+//   putTrap(): put trap down to the position and make a little time delay.
 
 class Ken{
   

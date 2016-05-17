@@ -3,24 +3,28 @@
 //Team member: Xin Guan and Joyce Chiu
 //
 //Main functions:
+//functional variables: 
+//    state (could be START, RUNNING, GAMEOVER)
+//    time (keep reading the real time in second for time delay functions)
+//    kenScore, thiefScore (recording their total score)
 //setup(): 
-//  initialize all the objects and variables
-//
+// initialize all the objects and variables
+
 //draw(): 
-//  draw all the screen, objects.
-//      there are 3 screen, title, play, gameover.
-//      objects: Ken, Thief, golds, trap items, swiftness, trapArea, 
-//  keep updating all the detection, action and movement algorithms
-//      include items collision detection, time recoder(time delay funciton), 
-//      action to use items, player's movement by key, agent's movement by gold finding algorithm.
-//
+// draw all the screen, objects.
+//     there are 3 screen, title, play, gameover.
+//     objects: Ken, Thief, golds, trap items, swiftness, trapArea, 
+// keep updating all the detection, action and movement algorithms
+//     include items collision detection, time recorder(time delay function), 
+//     action to use items, player's movement by key, agent's movement by gold finding algorithm.
+
 //How to play:
-// Start Screen: by press 's' key to start the game.
-// Game play screen: using arrow keys to move Ken in each direction;
-//                   collect items by collision, swiftness for speedup, trap items for putting down traps later;
-//                   using space key to put down a trap to where you stand.
-//             Goal: race to Thief, try to collect golds as much as possible to win;
-// Game Over Screen: by press 's' key to re-start the game.
+//Start Screen: by press 's' key to start the game.
+//Game play screen: using arrow keys to move Ken in each direction;
+//                  collect items by collision, swiftness for speedup, trap items for putting down traps later;
+//                  using space key to put down a trap to where you stand.
+//            Goal: race to Thief, try to collect golds as much as possible to win;
+//Game Over Screen: by press 's' key to re-start the game.
 
 
 //setup variables

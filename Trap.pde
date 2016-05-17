@@ -3,11 +3,11 @@
 //Team member: Xin Guan and Joyce Chiu
 //
 //class Trap:
-//    trap has: a random positon in the range of screen
-//              a radius, 20
-//    draw():
-//          draw trap item as a  ellipse with a "↓" text on it 
-//          in color of flashing dark gray
+//   trap has: a random position in the range of screen
+//             a radius, 20
+//   draw():
+//         draw trap item as an ellipse with a "↓" text on it 
+//         in color of flashing dark gray
 class Trap{
   
   PVector pos = new PVector();

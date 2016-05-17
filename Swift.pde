@@ -3,11 +3,11 @@
 //Team member: Xin Guan and Joyce Chiu
 //
 //class Swift:
-//    swift has: a random positon in the range of screen
-//               a radius, 20
-//    draw():
-//          draw swiftness as a blue ellipse with a "≈" text on it 
-//          in color of flashing blue color.
+//   swift has: a random position in the range of screen
+//              a radius, 20
+//   draw():
+//         draw swiftness as an ellipse with a "≈" text on it 
+//         in color of flashing blue color.
 class Swift{
   
   PVector pos = new PVector();

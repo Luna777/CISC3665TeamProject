@@ -3,14 +3,14 @@
 //Team member: Xin Guan and Joyce Chiu
 //
 //class Thief:
-//    has: thief's position, velocity, radius, buffers for trap function, time delay variables
-//
-//    draw(): draw ken as a red ellipse with a letter T.
-//    move(): move ken by the direction passed in. 
-//    findDir(): find the first gold it can see and return the direction of that gold
-//    speedup(), speeddown(), speedRestore(): to change thief's speed.
-//    gotSwift(), gotGold(), gotTrap(): to detect collision with items.
-//    putTrap(): put trap down to the position.
+//   has: thief's position, velocity, radius, buffers for trap function, time delay variables
+
+//   draw(): draw ken as a red ellipse with a letter T.
+//   move(): move ken by the direction passed in. 
+//   findDir(): find the first gold it can see and return the direction of that gold
+//   speedup(), speeddown(), speedRestore(): to change thief's speed.
+//   gotSwift(), gotGold(), gotTrap(): to detect collision with items.
+//   putTrap(): put trap down to the position.
 class Thief{
   
   PVector pos = new PVector(560, 200);
