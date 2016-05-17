@@ -1,8 +1,9 @@
-#CISC 3665										5/17/2016	
-#Lab IV.1 Team Project -- Technical Documentation
-#Team Member: Joyce Chiu,  Xin Guan
-
 #Ken’s Revenge
+CISC 3665										5/17/2016	
+Lab IV.1 Team Project -- Technical Documentation
+Team Member: Joyce Chiu,  Xin Guan
+
+
 
 #Game Overview:
 	This game is developed in Processing and able to run on Windows, OSX, Linux system. 
@@ -11,7 +12,7 @@
 
 #Implementation:
 	
-1.main functions:
+#1.main functions:
 	functional variables: state (could be START, RUNNING, GAMEOVER)
 			         time (keep reading the real time in second for time delay functions)
 			         kenScore, thiefScore (recording their total score)
@@ -29,7 +30,7 @@ action to use items, player's movement by key, agent's movement by gold finding 
 			draw background3.
 			draw win message, instruction to restart. 
 
-2.class Ken: 
+#2.class Ken: 
    has: ken's position, velocity, radius, buffers for trap function, time delay variables
 
    draw(): draw ken as a green ellipse with a letter K.
@@ -38,7 +39,7 @@ action to use items, player's movement by key, agent's movement by gold finding 
    gotSwift(), gotGold(), gotTrap(): to detect collision with items.
    putTrap(): put trap down to the position and make a little time delay.
 
-3.(AI) class Thief:
+#3.(AI) class Thief:
    has: thief's position, velocity, radius, buffers for trap function, time delay variables
 
    draw(): draw thief as a red ellipse with a letter T.
@@ -48,7 +49,7 @@ action to use items, player's movement by key, agent's movement by gold finding 
    (AI) gotSwift(), gotGold(), gotTrap(): to detect collision with items.
    (AI) putTrap(): put trap down to the position.
 
-4.class Gold:
+#4.class Gold:
    gold has: a random position in the range of screen
              a radius, 30;
              a value, could be 5, 10 or 20
@@ -57,13 +58,13 @@ action to use items, player's movement by key, agent's movement by gold finding 
          to draw the gold as an ellipse in its position on screen.
          fill in its color and has a text of its value on it.
 
-5.class Swift:
+#5.class Swift:
    swift has: a random position in the range of screen
               a radius, 20
    draw():
          draw swiftness as an ellipse with a "≈" text on it 
          in color of flashing blue color.
-6.class Trap:
+#6.class Trap:
    trap has: a random position in the range of screen
              a radius, 20
    draw():
