@@ -1,15 +1,15 @@
-​CISC 3665										5/17/2016	
+#CISC 3665										5/17/2016	
 Lab IV.1 Team Project -- Technical Documentation
 Team Member: Joyce Chiu,  Xin Guan
 
-Ken’s Revenge
+#Ken’s Revenge
 
-Game Overview:
+#Game Overview:
 	This game is developed in Processing and able to run on Windows, OSX, Linux system. 
 	It has 1 main function file and 5 object classes, Ken, Thief, Gold, Swift, Trap.
 	3 game screens, title screen, play screen, game over screen.
 
-Implementation:
+#Implementation:
 	
 1.main functions:
 	functional variables: state (could be START, RUNNING, GAMEOVER)
