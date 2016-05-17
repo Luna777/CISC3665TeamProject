@@ -1,6 +1,6 @@
 #CISC 3665										5/17/2016	
-Lab IV.1 Team Project -- Technical Documentation
-Team Member: Joyce Chiu,  Xin Guan
+#Lab IV.1 Team Project -- Technical Documentation
+#Team Member: Joyce Chiu,  Xin Guan
 
 #Ken’s Revenge
 
