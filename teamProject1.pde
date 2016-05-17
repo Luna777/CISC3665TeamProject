@@ -9,16 +9,21 @@
 //    kenScore, thiefScore (recording their total score)
 //setup(): 
 // initialize all the objects and variables
-
 //draw(): 
-// draw all the screen, objects.
-//     there are 3 screen, title, play, gameover.
-//     objects: Ken, Thief, golds, trap items, swiftness, trapArea, 
-// keep updating all the detection, action and movement algorithms
-//     include items collision detection, time recorder(time delay function), 
-//     action to use items, player's movement by key, agent's movement by gold finding algorithm.
-
-//How to play:
+//  read the value of “state” to show title screen, play screen or game over screen.
+//  In title screen:
+//      draw background1, title and instruction to start the game. 
+//  In play screen:
+//      draw background2.
+//      draw objects: Ken, Thief, golds, trap items, swiftness, trapArea, 
+//      keep updating all the detection, action and movement algorithms,
+//      include items collision detection, time recorder(time delay function), 
+//      action to use items, player's movement by key, agent's movement by gold finding algorithm.
+//  In game over screen:
+//      draw background3.
+//      draw win message, instruction to restart. 
+//
+//How to play(simple instruction):
 //Start Screen: by press 's' key to start the game.
 //Game play screen: using arrow keys to move Ken in each direction;
 //                  collect items by collision, swiftness for speedup, trap items for putting down traps later;
