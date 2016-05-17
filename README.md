@@ -16,19 +16,11 @@ Team Member: Joyce Chiu,  Xin Guan
 	functional variables: state (could be START, RUNNING, GAMEOVER)
 			         time (keep reading the real time in second for time delay functions)
 			         kenScore, thiefScore (recording their total score)
-setup(): initialize all the objects and variables
-draw(): read the value of “state” to show title screen, play screen or game over screen.
-In title screen:
-draw background1, title and instruction to start the game. 
-In play screen:
-	draw background2.
-draw objects: Ken, Thief, golds, trap items, swiftness, trapArea, 
- 	keep updating all the detection, action and movement algorithms,
-include items collision detection, time recorder(time delay function), 
-action to use items, player's movement by key, agent's movement by gold finding algorithm.
-		In game over screen:
-			draw background3.
-			draw win message, instruction to restart. 
+	setup(): initialize all the objects and variables
+	draw(): read the value of “state” to show title screen, play screen or game over screen.
+	In title screen: draw background1, title and instruction to start the game. 
+	In play screen: draw background2. draw objects: Ken, Thief, golds, trap items, swiftness, trapArea. keep updating all the detection, action and movement algorithms. include items collision detection, time recorder(time delay function). action to use items, player's movement by key, agent's movement by gold finding algorithm. 
+	In game over screen: draw background3. draw win message, instruction to restart. 
 
 #2.class Ken: 
    has: ken's position, velocity, radius, buffers for trap function, time delay variables
