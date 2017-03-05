@@ -2,7 +2,8 @@
 	CISC 3665			 			5/17/2016	
 	Lab IV.1 Team Project -- Technical Documentation
 	Team Member: Joyce Chiu,  Xin Guan
-
+#DOWNLOAD：
+	https://drive.google.com/file/d/0BygoZZ0TujI7blIzLXlkRDJONFE/view?usp=sharing
 
 
 #Game Overview:
